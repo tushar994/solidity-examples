@@ -11,13 +11,13 @@ interface IBaseOFTV2 is ICommonOFT {
 
     /**
      * @dev send `_amount` amount of token to (`_dstChainId`, `_toAddress`) from `_from`
-     * `_from` the owner of token
-     * `_dstChainId` the destination chain identifier
-     * `_toAddress` can be any size depending on the `dstChainId`.
-     * `_amount` the quantity of tokens in wei
-     * `_refundAddress` the address LayerZero refunds if too much message fee is sent
-     * `_zroPaymentAddress` set to address(0x0) if not paying in ZRO (LayerZero Token)
-     * `_adapterParams` is a flexible bytes array to indicate messaging adapter services
+     * @param _from The owner of token
+     * @param _dstChainId The destination chain identifier
+     * @param _toAddress The address of receiver. It can be any size depending on the `dstChainId`.
+     * @param _amount The quantity of tokens in wei
+     * @param _refundAddress The address LayerZero refunds if too much message fee is sent
+     * @param _zroPaymentAddress The address for zro payment. Set to address(0x0) if not paying in ZRO (LayerZero Token)
+     * @param _adapterParams Flexible bytes array to indicate messaging adapter services
      */
     function sendFrom(address _from, uint16 _dstChainId, bytes32 _toAddress, uint _amount, LzCallParams calldata _callParams) external payable;
 
